@@ -1,0 +1,37 @@
+name: pre-release
+
+on:
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  transaction:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: checkout
+      uses: actions/checkout@master
+
+    - name: make .env
+      uses: canastro/copy-file-action@master
+      with:
+        source: ".env.template"
+        target: ".env"
+
+    - name: setup
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: 8.1
+        coverage: none
+
+    - name: composer install
+      run: composer install
+
+    - name: editorconfig-checker
+      run: vendor/bin/ec | echo [OK] No errors
+
+    - name: phpstan
+      run: vendor/bin/phpstan analyze --level max src
+
+    - name: phpunit
+      run: vendor/bin/phpunit --colors="always" --do-not-cache-result --testdox src
