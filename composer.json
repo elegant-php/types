@@ -1,0 +1,29 @@
+{
+  "name": "elegant-php/types",
+  "description": "PHP types as objects",
+  "type": "library",
+  "license": "MPL-2.0",
+  "support": {
+    "email": "dev.999.victor@gmail.com",
+    "issues": "https://github.com/elegant-php/types/issues"
+  },
+  "autoload": {
+    "psr-4": {
+      "Elegant\\Types\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Viktor Khramov",
+      "email": "dev.999.victor@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.10",
+    "phpunit/phpunit": "^10.5",
+    "editorconfig-checker/editorconfig-checker": "^10.4"
+  }
+}
