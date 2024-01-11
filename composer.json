@@ -1,6 +1,7 @@
 {
   "name": "elegant-php/types",
   "description": "PHP types as objects",
+  "version": "1.0.0",
   "type": "library",
   "license": "MPL-2.0",
   "support": {
